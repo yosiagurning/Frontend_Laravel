@@ -1135,7 +1135,7 @@
         <div class="container hero-content">
             <h1 data-aos="fade-up" data-aos-delay="100">Kabupaten Toba mulai menerapkan Sistem Informasi Harga Berbasis Website</h1>
             <p data-aos="fade-up" data-aos-delay="200">Melalui aplikasi PARTOBA kita bisa Menemukan Harga Bahan Pokok Dan Barang Penting Secara Real-Time</p>
-            <a href="https://play.google.com/store/apps/details?id=com.radio.delfm&pcampaignid=web_share" 
+            <a href="" 
                class="btn-download" data-aos="fade-up" data-aos-delay="300">
                 <i class="fab fa-google-play"></i> Unduh Sekarang
             </a>
