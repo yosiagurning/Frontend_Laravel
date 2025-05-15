@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" class="light">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
@@ -22,38 +22,14 @@
             --transition: all 0.3s ease;
             --border-radius: 10px;
             --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-            
-            /* Light Theme Variables (Default) */
+
+            /* New Theme Variables */
             --bg-main: #f8f9fa;
             --bg-card: #ffffff;
-            --text-primary: #333333;
-            --text-secondary: #666666;
-            --border-color: #eaeaea;
-            --hover-bg: #f0f4f8;
-            --table-header-bg: #f3f6fb;
-            --table-hover-bg: #f9f9f9;
-            --header-bg: rgba(255, 255, 255, 0.95);
-            --header-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --footer-text: rgba(255, 255, 255, 0.7);
-            --skeleton-bg: #f0f0f0;
-            --skeleton-shine: rgba(255, 255, 255, 0.5);
-        }
-        
-        /* Dark Theme Variables */
-        html.dark {
-            --bg-main: #121212;
-            --bg-card: #1e1e1e;
-            --text-primary: #e0e0e0;
-            --text-secondary: #aaaaaa;
-            --border-color: #333333;
-            --hover-bg: #2a2a2a;
-            --table-header-bg: #252525;
-            --table-hover-bg: #2c2c2c;
-            --header-bg: rgba(30, 30, 30, 0.95);
-            --header-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            --footer-text: rgba(255, 255, 255, 0.5);
-            --skeleton-bg: #2a2a2a;
-            --skeleton-shine: rgba(255, 255, 255, 0.1);
+            --border-color: #e9ecef;
+            --table-header-bg: #f8f9fa;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
         }
 
         html {
@@ -65,47 +41,16 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: var(--bg-main);
-            color: var(--text-primary);
+            background: var(--light-bg);
+            color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
-            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .container {
             max-width: 1200px;
             margin: auto;
             padding: 20px;
-        }
-
-        /* Theme Toggle Button */
-        .theme-toggle {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--primary-color);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 99;
-            box-shadow: 0 4px 15px rgba(5, 117, 230, 0.3);
-            border: none;
-            transition: all 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            transform: rotate(30deg) scale(1.1);
-            background: var(--secondary-color);
-        }
-
-        .theme-toggle i {
-            font-size: 20px;
-            transition: all 0.3s ease;
         }
 
         /* Preloader */
@@ -148,21 +93,21 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: var(--header-bg);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             padding: 10px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: var(--header-shadow);
+            box-shadow: var(--shadow);
             z-index: 100;
             transition: all 0.4s ease;
         }
 
         .header.scrolled {
             padding: 5px 0;
-            background: var(--header-bg);
+            background: rgba(255, 255, 255, 0.98);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
@@ -198,7 +143,7 @@
         .nav a {
             margin: 0 15px;
             text-decoration: none;
-            color: var(--text-primary);
+            color: var(--text-color);
             font-weight: 500;
             padding: 8px 15px;
             transition: var(--transition);
@@ -250,7 +195,7 @@
             background: none;
             border: none;
             font-size: 24px;
-            color: var(--text-primary);
+            color: var(--text-color);
             cursor: pointer;
         }
 
@@ -408,13 +353,13 @@
         #searchBox {
             width: 100%;
             padding: 16px 25px;
-            border: 1px solid var(--border-color);
+            border: 1px solid rgba(224, 224, 224, 0.6);
             border-radius: 30px;
             font-size: 16px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
-            background: var(--bg-card);
-            color: var(--text-primary);
+            background: var(--white);
+            color: var(--text-color);
         }
 
         #searchBox:focus {
@@ -460,7 +405,7 @@
         }
 
         .section-header p {
-            color: var(--text-secondary);
+            color: #666;
             max-width: 700px;
             margin: 0 auto;
             font-size: 1.1rem;
@@ -468,7 +413,7 @@
 
         /* Komoditi Table */
         .table-container {
-            background: var(--bg-card);
+            background: var(--white);
             border-radius: var(--border-radius);
             box-shadow: var(--card-shadow);
             overflow: hidden;
@@ -489,12 +434,12 @@
         .komoditi td {
             padding: 16px;
             text-align: left;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid #eaeaea;
             transition: all 0.2s ease;
         }
 
         .komoditi th {
-            background-color: var(--table-header-bg);
+            background-color: #f3f6fb;
             font-weight: 600;
             color: var(--accent-color);
             position: relative;
@@ -503,7 +448,7 @@
         }
 
         .komoditi th:hover {
-            background-color: var(--hover-bg);
+            background-color: #e9eef5;
         }
 
         .komoditi tr {
@@ -511,7 +456,7 @@
         }
 
         .komoditi tr:hover {
-            background-color: var(--table-hover-bg);
+            background-color: #f9f9f9;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
         }
@@ -556,12 +501,11 @@
 
         .pagination button {
             padding: 8px 15px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: var(--white);
+            border: 1px solid #eaeaea;
             border-radius: 5px;
             cursor: pointer;
             transition: all 0.3s ease;
-            color: var(--text-primary);
         }
 
         .pagination button:hover,
@@ -573,7 +517,7 @@
 
         /* Tentang Section */
         .tentang {
-            background-color: var(--bg-card);
+            background-color: var(--white);
             padding: 40px;
             text-align: justify;
             border-radius: var(--border-radius);
@@ -608,7 +552,7 @@
 
         .tentang p {
             line-height: 1.8;
-            color: var(--text-primary);
+            color: var(--text-color);
             font-size: 16px;
             margin-bottom: 15px;
         }
@@ -891,7 +835,7 @@
                 top: 70px;
                 left: 0;
                 width: 100%;
-                background: var(--bg-card);
+                background: var(--white);
                 flex-direction: column;
                 align-items: center;
                 padding: 20px 0;
@@ -963,18 +907,11 @@
             .section-header h2 {
                 font-size: 1.8rem;
             }
-            
-            .theme-toggle {
-                bottom: 90px;
-                left: 20px;
-                width: 45px;
-                height: 45px;
-            }
         }
 
         /* Market Lightbox Styles */
         .market-lightbox-content {
-            background: var(--bg-card);
+            background: white;
             border-radius: 10px;
             max-width: 800px;
             width: 90%;
@@ -986,13 +923,13 @@
             max-height: 90vh;
         }
         
-        .market-detail-image {
+        .market-image {
             width: 40%;
             height: auto;
             overflow: hidden;
         }
         
-        .market-detail-image img {
+        .market-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -1002,8 +939,6 @@
             width: 60%;
             padding: 25px;
             overflow-y: auto;
-            background-color: var(--bg-main);
-            border-left: 3px solid var(--primary-color);
         }
         
         .market-info h3 {
@@ -1024,7 +959,7 @@
         
         .history-text {
             line-height: 1.8;
-            color: var(--text-primary);
+            color: var(--text-color);
             padding: 15px;
             background-color: rgba(5, 117, 230, 0.05);
             border-radius: 8px;
@@ -1037,39 +972,7 @@
                 flex-direction: column;
             }
             
-            .market-detail-image {
-                width: 100%;
-                height: 200px;
-            }
-            
-            .market-info {
-                width: 100%;
-                border-left: none;
-                border-top: 3px solid var(--primary-color);
-            }
-        }
-
-        .highlight-description {
-            animation: pulse 1s ease;
-        }
-
-        @keyframes pulse {
-            0% { background-color: rgba(5, 117, 230, 0.05); }
-            50% { background-color: rgba(5, 117, 230, 0.2); }
-            100% { background-color: rgba(5, 117, 230, 0.05); }
-        }
-
-        .market-description {
-            scroll-margin-top: 20px;
-        }
-
-        /* Ensure the market info section takes focus on mobile */
-        @media (max-width: 768px) {
-            .market-lightbox-content {
-                flex-direction: column-reverse;
-            }
-            
-            .market-detail-image {
+            .market-image {
                 width: 100%;
                 height: 200px;
             }
@@ -1078,6 +981,115 @@
                 width: 100%;
             }
         }
+
+/* Enhanced Pagination Styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.pagination button {
+    padding: 8px 15px;
+    background: var(--white);
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.pagination button:hover:not(:disabled) {
+    background: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+.pagination button:disabled {
+    cursor: not-allowed;
+}
+
+.pagination .page-info {
+    background: #f3f6fb;
+    border-radius: 5px;
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+/* Table container with max height */
+.table-container {
+    max-height: 600px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-light) var(--bg-card);
+}
+
+/* Scrollbar styling for webkit browsers */
+.table-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+    background: var(--bg-card);
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    background-color: var(--primary-light);
+    border-radius: 4px;
+}
+
+/* Sticky table header */
+.komoditi thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--table-header-bg);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Show/Hide Table Controls */
+.table-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.table-controls .view-all-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.table-controls .view-all-btn:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+}
+
+.table-controls .view-all-btn i {
+    transition: transform 0.3s ease;
+}
+
+.table-controls .view-all-btn.expanded i {
+    transform: rotate(180deg);
+}
+
+.rows-info {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
     </style>
 </head>
 
@@ -1091,11 +1103,6 @@
     <div class="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </div>
-    
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
-        <i class="fas fa-sun"></i>
-    </button>
 
     <!-- Navbar -->
     <header class="header">
@@ -1143,14 +1150,14 @@
         </div>
 
         <div class="gallery-grid">
-            <div class="gallery-item" data-aos="" data-aos-delay="100" data-market-id="1">
-                <img src="{{ asset('Images/toba-background.jpeg') }}" alt="Pasar Balige">
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100" data-market-id="1">
+                <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Balige">
                 <div class="description">
                     <i class="fas fa-store-alt mr-2"></i> Pasar Balige
                 </div>
             </div>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200" data-market-id="2">
-                <img src="{{ asset('Images/lAGUBOTI.jpg') }}" alt="Pasar Laguboti">
+                <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Laguboti">
                 <div class="description">
                     <i class="fas fa-store-alt mr-2"></i> Pasar Laguboti
                 </div>
@@ -1161,56 +1168,56 @@
                     <i class="fas fa-store-alt mr-2"></i> Pasar Siborong-borong
                 </div>
             </div> --}}
-            {{-- <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100" data-market-id="4">
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100" data-market-id="4">
                 <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Parsoburan">
                 <div class="description">
                     <i class="fas fa-store-alt mr-2"></i> Pasar Parsoburan
                 </div>
-            </div> --}}
+            </div>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200" data-market-id="5">
-                <img src="{{ asset('Images/ajibata.jpeg') }}" alt="Pasar Ajibata">
+                <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Ajibata">
                 <div class="description">
                     <i class="fas fa-store-alt mr-2"></i> Pasar Ajibata
                 </div>
             </div>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" data-market-id="6">
-                <img src="{{ asset('Images/Lumbanjulu.jpg') }}" alt="Pasar Lumban Julu">
+                <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Lumban Julu">
                 <div class="description">
                     <i class="fas fa-store-alt mr-2"></i> Pasar Lumban Julu
                 </div>
             </div>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100" data-market-id="7">
-                <img src="{{ asset('Images/porsea2.jpg') }}" alt="Pasar Porsea">
+                <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Porsea">
                 <div class="description">
                     <i class="fas fa-store-alt mr-2"></i> Pasar Porsea
                 </div>
             </div>
-            {{-- <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200" data-market-id="8">
-                <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Sigumpar">
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200" data-market-id="8">
+                <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Silimbat">
                 <div class="description">
-                    <i class="fas fa-store-alt mr-2"></i> Pasar Sigumpar
+                    <i class="fas fa-store-alt mr-2"></i> Pasar Silimbat
                 </div>
-            </div> --}}
+            </div>
             {{-- <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" data-market-id="9">
                 <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Meat">
                 <div class="description">
                     <i class="fas fa-store-alt mr-2"></i> Pasar Meat
-                </div>
-            </div> --}}
-            {{-- <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100" data-market-id="10">
-                <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Siantar Narumonda">
+                </div> --}}
+            </div>
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100" data-market-id="10">
+                <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Lumban Lobu">
                 <div class="description">
-                    <i class="fas fa-store-alt mr-2"></i> Pasar Siantar Narumonda
+                    <i class="fas fa-store-alt mr-2"></i> Pasar Lumban Lobu
                 </div>
-            </div> --}}
-            {{-- <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200" data-market-id="11">
+            </div>
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200" data-market-id="11">
                 <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Habinsaran">
                 <div class="description">
                     <i class="fas fa-store-alt mr-2"></i> Pasar Habinsaran
                 </div>
-            </div> --}}
+            </div>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" data-market-id="12">
-                <img src="{{ asset('Images/silaen.jpg') }}" alt="Pasar Silaen">
+                <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Silaen">
                 <div class="description">
                     <i class="fas fa-store-alt mr-2"></i> Pasar Silaen
                 </div>
@@ -1225,23 +1232,23 @@
     </section>
 
     <!-- Market Lightbox -->
-<div id="market-lightbox" class="lightbox">
-    <span class="close" id="close-market-lightbox">&times;</span>
-    <div class="market-lightbox-content">
-        <div class="market-detail-image">
-            <img id="market-detail-img" src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Detail">
-        </div>
-        <div class="market-info" id="market-info-section">
-            <h3 id="market-name">Nama Pasar</h3>
-            <div class="market-description" id="market-description-section">
-                <h4>Sejarah Singkat</h4>
-                <p id="market-description" class="history-text">
-                    Deskripsi sejarah pasar akan ditampilkan di sini.
-                </p>
+    <div id="market-lightbox" class="lightbox">
+        <span class="close" id="close-market-lightbox">&times;</span>
+        <div class="market-lightbox-content">
+            <div class="market-image">
+                <img id="market-lightbox-img" src="{{ asset('Images/placeholder.svg') }}" alt="Pasar">
+            </div>
+            <div class="market-info">
+                <h3 id="market-name">Nama Pasar</h3>
+                <div class="market-description">
+                    <h4>Sejarah Singkat</h4>
+                    <p id="market-description" class="history-text">
+                        Deskripsi sejarah pasar akan ditampilkan di sini.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     <!-- Komoditi Section -->
     <section id="komoditi" class="container">
@@ -1253,6 +1260,16 @@
         <div class="search-container" data-aos="fade-up" data-aos-delay="100">
             <input type="text" id="searchBox" onkeyup="searchTable()" placeholder="Cari komoditi, pasar, atau kategori...">
             <i class="fas fa-search search-icon"></i>
+        </div>
+
+        <div class="table-controls" data-aos="fade-up" data-aos-delay="150">
+            <div class="rows-info">
+                Menampilkan <span id="visibleRows">0</span> dari <span id="totalRows">0</span> komoditi
+            </div>
+            <button class="view-all-btn" id="viewAllBtn">
+                <span>Lihat Semua</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
         </div>
 
         <div class="table-container" data-aos="fade-up" data-aos-delay="200">
@@ -1435,37 +1452,6 @@
                 mirror: false
             });
 
-            // Theme Toggle Functionality
-            const themeToggle = document.getElementById('themeToggle');
-            const htmlElement = document.documentElement;
-            const themeIcon = themeToggle.querySelector('i');
-            
-            // Check for saved theme preference or respect OS preference
-            const savedTheme = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
-            // Set initial theme
-            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-                htmlElement.classList.add('dark');
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-            }
-            
-            // Theme toggle event listener
-            themeToggle.addEventListener('click', function() {
-                if (htmlElement.classList.contains('dark')) {
-                    htmlElement.classList.remove('dark');
-                    localStorage.setItem('theme', 'light');
-                    themeIcon.classList.remove('fa-moon');
-                    themeIcon.classList.add('fa-sun');
-                } else {
-                    htmlElement.classList.add('dark');
-                    localStorage.setItem('theme', 'dark');
-                    themeIcon.classList.remove('fa-sun');
-                    themeIcon.classList.add('fa-moon');
-                }
-            });
-
             // Preloader
             setTimeout(function() {
                 const preloader = document.querySelector('.preloader');
@@ -1558,349 +1544,454 @@
                 }
             });
 
-            // Table pagination
-            const table = document.getElementById('hargaKomoditi');
-            const rowsPerPage = 10;
-            const rows = table.querySelectorAll('tbody tr');
-            const pageCount = Math.ceil(rows.length / rowsPerPage);
-            const pagination = document.getElementById('tablePagination');
+            // Find and replace the entire pagination JavaScript code section with this fixed version:
 
-            // Create pagination buttons
-            for (let i = 1; i <= pageCount; i++) {
-                const btn = document.createElement('button');
-                btn.innerText = i;
-                btn.addEventListener('click', function() {
-                    document.querySelectorAll('#tablePagination button').forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    showPage(i);
-                });
-                pagination.appendChild(btn);
-            }
-
-            // Show first page by default
-            if (pageCount > 0) {
-                pagination.querySelector('button').classList.add('active');
-                showPage(1);
-            }
-
-            function showPage(pageNum) {
-                const start = (pageNum - 1) * rowsPerPage;
-                const end = start + rowsPerPage;
-
-                rows.forEach((row, index) => {
-                    if (index >= start && index < end) {
-                        row.style.display = '';
-                    } else {
-                        row.style.display = 'none';
-                    }
-                });
-            }
-
-            // Add sort icons to table headers
-            const tableHeaders = document.querySelectorAll('#hargaKomoditi th');
-            tableHeaders.forEach(header => {
-                if (!header.querySelector('.sort-icons')) {
-                    const sortIcons = document.createElement('span');
-                    sortIcons.className = 'sort-icons';
-                    sortIcons.innerHTML = `
-                        <i class="fas fa-caret-up asc"></i>
-                        <i class="fas fa-caret-down desc"></i>
-                    `;
-                    header.appendChild(sortIcons);
+// Table pagination
+const table = document.getElementById('hargaKomoditi');
+if (table) {
+    const rowsPerPage = 10;
+    const rows = table.querySelectorAll('tbody tr');
+    const totalRows = rows.length;
+    const pageCount = Math.ceil(totalRows / rowsPerPage);
+    const pagination = document.getElementById('tablePagination');
+    
+    // Initialize current page
+    let currentPage = 1;
+    
+    // Clear any existing pagination
+    if (pagination) {
+        pagination.innerHTML = '';
+        
+        // Only create pagination if we have more than one page
+        if (pageCount > 1) {
+            // Add previous button
+            const prevBtn = document.createElement('button');
+            prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i> Sebelumnya';
+            prevBtn.classList.add('prev-btn');
+            prevBtn.disabled = true;
+            prevBtn.style.opacity = '0.5';
+            prevBtn.addEventListener('click', function() {
+                if (currentPage > 1) {
+                    currentPage--;
+                    showCurrentPage();
+                    updatePaginationButtons();
                 }
             });
-
-            // Market data with detail images (different from the thumbnail images)
-            const marketData = [
-                {
-                    id: 1,
-                    name: "Pasar Balige",
-                    thumbnailImage: "{{ asset('Images/toba-background.jpeg') }}", // This is the image shown in the grid
-                    detailImage: "{{ asset('Images/pasar-balige-onan-balerong.jpg') }}", // This is the image shown in the lightbox
-                    description: "Pasar Balige adalah salah satu pasar tertua di Kabupaten Toba. Didirikan pada tahun 1920, pasar ini awalnya merupakan tempat pertukaran hasil bumi antar penduduk lokal. Seiring perkembangan zaman, pasar ini menjadi pusat ekonomi yang penting di kawasan Balige."
-                },
-                {
-                    id: 2,
-                    name: "Pasar Laguboti",
-                    thumbnailImage: "{{ asset('Images/placeholder.svg') }}",
-                    detailImage: "{{ asset('Images/2lgbt.jpg') }}",
-                    description: "Pasar Laguboti memiliki sejarah yang kaya sejak era kolonial Belanda. Pasar ini terkenal dengan perdagangan rempah-rempah dan hasil pertanian lokal. Hingga kini, pasar ini masih menjadi salah satu pusat perdagangan penting di Kabupaten Toba."
-                },
-                // {
-                //     id: 3,
-                //     name: "Pasar Siborong-borong",
-                //     thumbnailImage: "{{ asset('Images/placeholder.svg') }}",
-                //     detailImage: "{{ asset('Images/placeholder.svg') }}",
-                //     description: "Pasar Siborong-borong didirikan pada tahun 1935 dan menjadi pusat perdagangan penting yang menghubungkan daerah Toba dengan Tapanuli Utara. Pasar ini terkenal dengan keragaman produk pertanian dan kerajinan tangan tradisional Batak."
-                // },
-                // {
-                //     id: 4,
-                //     name: "Pasar Parsoburan",
-                //     thumbnailImage: "{{ asset('Images/placeholder.svg') }}",
-                //     detailImage: "{{ asset('Images/placeholder.svg') }}",
-                //     description: "Pasar Parsoburan memiliki sejarah yang dimulai sejak tahun 1940-an. Pasar ini menjadi tempat penting bagi masyarakat lokal untuk menjual hasil pertanian dan perikanan dari Danau Toba. Hingga kini, pasar ini tetap menjadi pusat ekonomi yang vital."
-                // },
-                {
-                    id: 5,
-                    name: "Pasar Ajibata",
-                    thumbnailImage: "{{ asset('Images/placeholder.svg') }}",
-                    detailImage: "{{ asset('Images/ajibata.jpeg') }}",
-                    description: "Pasar Ajibata terletak di tepi Danau Toba dan memiliki sejarah sebagai pasar nelayan sejak tahun 1950. Pasar ini terkenal dengan ikan segar dari Danau Toba dan menjadi salah satu destinasi wisata kuliner di Kabupaten Toba."
-                },
-                {
-                    id: 6,
-                    name: "Pasar Lumban Julu",
-                    thumbnailImage: "{{ asset('Images/placeholder.svg') }}",
-                    detailImage: "{{ asset('Images/Lumbanjulu.jpg') }}",
-                    description: "Pasar Lumban Julu didirikan pada tahun 1945 setelah kemerdekaan Indonesia. Pasar ini menjadi pusat perdagangan hasil pertanian dari dataran tinggi sekitar Lumban Julu dan terkenal dengan sayuran segar dan buah-buahan lokal."
-                },
-                {
-                    id: 7,
-                    name: "Pasar Porsea",
-                    thumbnailImage: "{{ asset('Images/placeholder.svg') }}",
-                    detailImage: "{{ asset('Images/porsea.jpg') }}",
-                    description: "Pasar Porsea memiliki sejarah yang dimulai sejak tahun 1930-an. Pasar ini berkembang pesat setelah dibangunnya pabrik kertas di daerah tersebut dan menjadi pusat ekonomi yang penting bagi masyarakat Porsea dan sekitarnya."
-                },
-                // {
-                //     id: 8,
-                //     name: "Pasar Sigumpar",
-                //     thumbnailImage: "{{ asset('Images/placeholder.svg') }}",
-                //     detailImage: "{{ asset('Images/placeholder.svg') }}",
-                //     description: "Pasar Sigumpar adalah salah satu pasar tradisional yang telah ada sejak tahun 1940. Pasar ini terkenal dengan perdagangan ulos (kain tradisional Batak) dan menjadi pusat pelestarian budaya Batak melalui perdagangan kerajinan tradisional."
-                // },
-                // {
-                //     id: 9,
-                //     name: "Pasar Meat",
-                //     thumbnailImage: "{{ asset('Images/placeholder.svg') }}",
-                //     detailImage: "{{ asset('Images/placeholder.svg') }}",
-                //     description: "Pasar Meat didirikan pada tahun 1955 dan menjadi pusat perdagangan hasil pertanian dari daerah sekitar. Pasar ini terkenal dengan kopi dan hasil perkebunan lainnya yang menjadi komoditas unggulan dari daerah Meat."
-                // },
-                // {
-                //     id: 10,
-                //     name: "Pasar Siantar Narumonda",
-                //     thumbnailImage: "{{ asset('Images/placeholder.svg') }}",
-                //     detailImage: "{{ asset('Images/placeholder.svg') }}",
-                //     description: "Pasar Siantar Narumonda memiliki sejarah yang dimulai sejak tahun 1960. Pasar ini menjadi pusat perdagangan yang menghubungkan daerah Toba dengan Simalungun dan terkenal dengan keragaman produk dari kedua daerah tersebut."
-                // },
-                // {
-                //     id: 11,
-                //     name: "Pasar Habinsaran",
-                //     thumbnailImage: "{{ asset('Images/placeholder.svg') }}",
-                //     detailImage: "{{ asset('Images/placeholder.svg') }}",
-                //     description: "Pasar Habinsaran didirikan pada tahun 1965 dan menjadi pusat ekonomi penting di daerah timur Kabupaten Toba. Pasar ini terkenal dengan hasil pertanian dari dataran tinggi Habinsaran yang subur."
-                // },
-                {
-                    id: 12,
-                    name: "Pasar Silaen",
-                    thumbnailImage: "{{ asset('Images/placeholder.svg') }}",
-                    detailImage: "{{ asset('Images/silaen.jpg') }}",
-                    description: "Pasar Silaen memiliki sejarah yang dimulai sejak tahun 1950. Pasar ini menjadi pusat perdagangan hasil pertanian dan peternakan dari daerah Silaen dan sekitarnya. Hingga kini, pasar ini tetap menjadi pusat ekonomi yang penting."
-                }
-                // {
-                //     id: 13,
-                //     name: "Pasar Tambunan",
-                //     thumbnailImage: "{{ asset('Images/placeholder.svg') }}",
-                //     detailImage: "{{ asset('Images/placeholder.svg') }}",
-                //     description: "Pasar Tambunan adalah salah satu pasar tradisional yang telah ada sejak tahun 1970. Pasar ini terkenal dengan perdagangan hasil pertanian dan kerajinan tangan dari daerah Tambunan dan sekitarnya."
-                // }
-            ];
-
-            // Market Lightbox
-            const marketItems = document.querySelectorAll('.gallery-item[data-market-id]');
-            const marketLightbox = document.getElementById('market-lightbox');
-            const marketDetailImg = document.getElementById('market-detail-img');
-            const marketName = document.getElementById('market-name');
-            const marketDescription = document.getElementById('market-description');
-            const closeMarketLightbox = document.getElementById('close-market-lightbox');
-
-            // Open market lightbox when market item is clicked
-            marketItems.forEach(item => {
-                item.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation(); // Prevent triggering the gallery lightbox
-                    
-                    const marketId = parseInt(this.getAttribute('data-market-id'));
-                    const market = marketData.find(m => m.id === marketId);
-                    
-                    if (market) {
-                        // Set the detail image (not the same as the clicked image)
-                        marketDetailImg.src = market.detailImage;
-                        marketDetailImg.alt = market.name;
-                        
-                        // Set the market name and description
-                        marketName.textContent = market.name;
-                        marketDescription.textContent = market.description;
-                        
-                        // Show the lightbox
-                        marketLightbox.classList.add('active');
-                        document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
-                        
-                        // Immediately focus on the description section
-                        const descriptionSection = document.getElementById('market-description-section');
-                        if (descriptionSection) {
-                            // Use a small timeout to ensure the lightbox is fully rendered before scrolling
-                            setTimeout(() => {
-                                descriptionSection.scrollIntoView({ behavior: 'auto', block: 'start' });
-                                // Add a highlight effect to draw attention to the description
-                                descriptionSection.classList.add('highlight-description');
-                                setTimeout(() => {
-                                    descriptionSection.classList.remove('highlight-description');
-                                }, 1000);
-                            }, 50);
-                        }
-                    }
-                });
-            });
-
-            // Close market lightbox when close button is clicked
-            closeMarketLightbox.addEventListener('click', function() {
-                marketLightbox.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-
-            // Close market lightbox when clicking outside the content
-            marketLightbox.addEventListener('click', function(e) {
-                if (e.target === marketLightbox) {
-                    marketLightbox.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-
-            // Close market lightbox with ESC key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && marketLightbox.classList.contains('active')) {
-                    marketLightbox.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-        });
-
-        // Search table function
-        function searchTable() {
-            let input = document.getElementById("searchBox").value.toLowerCase();
-            let table = document.getElementById("hargaKomoditi");
-            let tr = table.getElementsByTagName("tr");
-
-            for (let i = 1; i < tr.length; i++) {
-                let tdKomoditi = tr[i].getElementsByTagName("td")[1];
-                let tdHarga = tr[i].getElementsByTagName("td")[2];
-                let tdTanggal = tr[i].getElementsByTagName("td")[3];
-                let tdPasar = tr[i].getElementsByTagName("td")[4];
-                let tdKategori = tr[i].getElementsByTagName("td")[5];
-
-                if (tdKomoditi && tdHarga && tdTanggal && tdPasar && tdKategori) {
-                    let textKomoditi = tdKomoditi.textContent.toLowerCase();
-                    let textHarga = tdHarga.textContent.toLowerCase();
-                    let textTanggal = tdTanggal.textContent.toLowerCase();
-                    let textPasar = tdPasar.textContent.toLowerCase();
-                    let textKategori = tdKategori.textContent.toLowerCase();
-
-                    if (textKomoditi.includes(input) ||
-                        textHarga.includes(input) ||
-                        textTanggal.includes(input) ||
-                        textPasar.includes(input) ||
-                        textKategori.includes(input)) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-
-        // Sort table function
-        function sortTable(columnIndex, headerElement) {
-            const table = document.getElementById("hargaKomoditi");
-            let rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-            switching = true;
-
-            // Reset all sort icons
-            const allSortIcons = document.querySelectorAll("#hargaKomoditi th .sort-icons");
-            allSortIcons.forEach(icon => {
-                icon.classList.remove("active-asc", "active-desc");
-            });
-
-            // Get the sort icon for this header
-            const sortIcon = headerElement.querySelector(".sort-icons");
+            pagination.appendChild(prevBtn);
             
-            // Set the direction
-            dir = sortIcon.classList.contains("active-asc") ? "desc" : "asc";
-
-            // Update the sort icon
-            if (dir === "asc") {
-                sortIcon.classList.add("active-asc");
-            } else {
-                sortIcon.classList.add("active-desc");
-            }
-
-            while (switching) {
-                switching = false;
-                rows = table.rows;
-
-                for (i = 1; i < (rows.length - 1); i++) {
-                    shouldSwitch = false;
-
-                    x = rows[i].getElementsByTagName("TD")[columnIndex];
-                    y = rows[i + 1].getElementsByTagName("TD")[columnIndex];
-
-                    let xContent = x.textContent || x.innerText;
-                    let yContent = y.textContent || y.innerText;
-
-                    // Special handling for numbers and prices
-                    if (columnIndex === 0) { // No column
-                        xContent = parseInt(xContent);
-                        yContent = parseInt(yContent);
-                    } else if (columnIndex === 2) { // Price column
-                        xContent = parseFloat(xContent.replace(/[^\d]/g, '')) || 0;
-                        yContent = parseFloat(yContent.replace(/[^\d]/g, '')) || 0;
-                    } else if (columnIndex === 3) { // Date column
-                        xContent = new Date(xContent);
-                        yContent = new Date(yContent);
-                    }
-
-                    if (dir === "asc") {
-                        if (xContent > yContent) {
-                            shouldSwitch = true;
-                            break;
-                        }
-                    } else if (dir === "desc") {
-                        if (xContent < yContent) {
-                            shouldSwitch = true;
-                            break;
-                        }
-                    }
+            // Add page info display
+            const pageInfo = document.createElement('span');
+            pageInfo.className = 'page-info';
+            pageInfo.style.margin = '0 10px';
+            pageInfo.style.display = 'inline-block';
+            pageInfo.style.padding = '8px 15px';
+            pageInfo.innerHTML = `Halaman <span id="current-page">1</span> dari ${pageCount}`;
+            pagination.appendChild(pageInfo);
+            
+            // Add next button
+            const nextBtn = document.createElement('button');
+            nextBtn.innerHTML = 'Selanjutnya <i class="fas fa-chevron-right"></i>';
+            nextBtn.classList.add('next-btn');
+            nextBtn.disabled = pageCount === 1;
+            nextBtn.style.opacity = pageCount === 1 ? '0.5' : '1';
+            nextBtn.addEventListener('click', function() {
+                if (currentPage < pageCount) {
+                    currentPage++;
+                    showCurrentPage();
+                    updatePaginationButtons();
                 }
+            });
+            pagination.appendChild(nextBtn);
+            
+            // Show first page by default
+            showCurrentPage();
+        } else {
+            // If there's only one page or less, show all rows
+            rows.forEach(row => {
+                row.style.display = '';
+            });
+        }
+    }
+    
+    // Function to show current page
+    function showCurrentPage() {
+        const start = (currentPage - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+        
+        rows.forEach((row, index) => {
+            if (index >= start && index < end) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+        
+        // Update current page display
+        const currentPageSpan = document.getElementById('current-page');
+        if (currentPageSpan) {
+            currentPageSpan.textContent = currentPage;
+        }
+        
+        // Update row count information
+        updateRowCount();
+    }
+    
+    // Function to update pagination buttons
+    function updatePaginationButtons() {
+        const prevBtn = pagination.querySelector('.prev-btn');
+        const nextBtn = pagination.querySelector('.next-btn');
+        
+        if (prevBtn) {
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.style.opacity = currentPage === 1 ? '0.5' : '1';
+        }
+        
+        if (nextBtn) {
+            nextBtn.disabled = currentPage === pageCount;
+            nextBtn.style.opacity = currentPage === pageCount ? '0.5' : '1';
+        }
+    }
+    
+    // Function to update row count information
+    function updateRowCount() {
+        const visibleRowsSpan = document.getElementById('visibleRows');
+        const totalRowsSpan = document.getElementById('totalRows');
+        
+        if (visibleRowsSpan && totalRowsSpan) {
+            let visibleCount = 0;
+            rows.forEach(row => {
+                if (row.style.display !== 'none') {
+                    visibleCount++;
+                }
+            });
+            
+            visibleRowsSpan.textContent = visibleCount;
+            totalRowsSpan.textContent = totalRows;
+        }
+    }
+    
+    // Initialize row count
+    updateRowCount();
+    
+    // View All Table functionality
+    const viewAllBtn = document.getElementById('viewAllBtn');
+    let isTableExpanded = false;
+    
+    if (viewAllBtn) {
+        viewAllBtn.addEventListener('click', function() {
+            isTableExpanded = !isTableExpanded;
+            
+            if (isTableExpanded) {
+                // Show all rows
+                rows.forEach(row => {
+                    row.style.display = '';
+                });
+                
+                // Hide pagination
+                pagination.style.display = 'none';
+                
+                // Update button text and icon
+                const spanElement = viewAllBtn.querySelector('span');
+                if (spanElement) {
+                    spanElement.textContent = 'Tampilkan Sebagian';
+                }
+                viewAllBtn.classList.add('expanded');
+            } else {
+                // Revert to paginated view
+                pagination.style.display = 'flex';
+                
+                // Show current page
+                showCurrentPage();
+                
+                // Update button text and icon
+                const spanElement = viewAllBtn.querySelector('span');
+                if (spanElement) {
+                    spanElement.textContent = 'Lihat Semua';
+                }
+                viewAllBtn.classList.remove('expanded');
+            }
+            
+            updateRowCount();
+        });
+    }
+}
 
-                if (shouldSwitch) {
-                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                    switching = true;
-                    switchcount++;
-                } else {
-                    if (switchcount === 0 && dir === "asc") {
-                        dir = "desc";
-                        sortIcon.classList.remove("active-asc");
-                        sortIcon.classList.add("active-desc");
-                        switching = true;
-                    }
+// Remove any duplicate function definitions or conflicting code
+// Make sure these functions are defined only once
+function searchTable() {
+    // Declare variables
+    let input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchBox");
+    if (!input) return;
+    
+    filter = input.value.toUpperCase();
+    table = document.getElementById("hargaKomoditi");
+    if (!table) return;
+    
+    tr = table.getElementsByTagName("tr");
+
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+        let match = false;
+        for (let j = 0; j < 6; j++) { // Check all 6 columns
+            td = tr[i].getElementsByTagName("td")[j];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    match = true;
+                    break;
                 }
             }
         }
+        if (match) {
+            tr[i].style.display = "";
+        } else {
+            if (i > 0) { // Don't hide the header row
+                tr[i].style.display = "none";
+            }
+        }
+    }
+    
+    // Update row count after search
+    const visibleRowsSpan = document.getElementById('visibleRows');
+    const totalRowsSpan = document.getElementById('totalRows');
+    const rows = table.querySelectorAll('tbody tr');
+    const totalRows = rows.length;
+    
+    if (visibleRowsSpan && totalRowsSpan) {
+        let visibleCount = 0;
+        rows.forEach(row => {
+            if (row.style.display !== 'none') {
+                visibleCount++;
+            }
+        });
+        
+        visibleRowsSpan.textContent = visibleCount;
+        totalRowsSpan.textContent = totalRows;
+    }
+}
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+function sortTable(columnIndex, th) {
+    const table = document.getElementById("hargaKomoditi");
+    if (!table) return;
+    
+    let rows, i, x, y, shouldSwitch, switchcount = 0;
+    let switching = true;
+    // Set the sorting direction to ascending:
+    let dir = "asc";
+    
+    // Reset sort icons
+    const sortIcons = document.querySelectorAll('.sort-icons');
+    sortIcons.forEach(icon => {
+        icon.classList.remove('active-asc', 'active-desc');
+    });
+    
+    // Add active class to the clicked header
+    const currentSortIcon = th.querySelector('.sort-icons');
+    
+    /* Make a loop that will continue until
+    no switching has been done: */
+    while (switching) {
+        // Start by saying: no switching is done:
+        switching = false;
+        rows = table.rows;
+        /* Loop through all table rows (except the
+        first, which contains table headers): */
+        for (i = 1; i < (rows.length - 1); i++) {
+            // Start by saying there should be no switching:
+            shouldSwitch = false;
+            /* Get the two elements you want to compare,
+            one from current row and one from the next: */
+            x = rows[i].getElementsByTagName("TD")[columnIndex];
+            y = rows[i + 1].getElementsByTagName("TD")[columnIndex];
+            
+            if (!x || !y) continue;
+            
+            /* Check if the two rows should switch place,
+            based on the direction, asc or desc: */
+            if (dir == "asc") {
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    // If so, mark as a switch and break the loop:
+                    shouldSwitch = true;
+                    break;
                 }
-            });
+            } else if (dir == "desc") {
+                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                    // If so, mark as a switch and break the loop:
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+        }
+        if (shouldSwitch) {
+            /* If a switch has been marked, make the switch
+            and mark that a switch has been done: */
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            // Each time a switch is done, increase this count by 1:
+            switchcount++;
+        } else {
+            /* If no switching has been done AND the direction is "asc",
+            set the direction to "desc" and run the while loop again. */
+            if (switchcount == 0 && dir == "asc") {
+                dir = "desc";
+                switching = true;
+            }
+        }
+    }
+
+    // Update sort icon
+    if (currentSortIcon) {
+        if (dir === "asc") {
+            currentSortIcon.classList.add('active-asc');
+        } else {
+            currentSortIcon.classList.add('active-desc');
+        }
+    }
+}
+
+// Market data
+const marketData = [
+    {
+        id: 1,
+        name: "Pasar Balige",
+        image: "{{ asset('Images/placeholder.svg') }}",
+        description: "Pasar Balige adalah salah satu pasar tertua di Kabupaten Toba. Didirikan pada tahun 1920, pasar ini awalnya merupakan tempat pertukaran hasil bumi antar penduduk lokal. Seiring perkembangan zaman, pasar ini menjadi pusat ekonomi yang penting di kawasan Balige. Pasar ini terkenal dengan berbagai produk pertanian lokal dan kerajinan tangan khas Batak Toba."
+    },
+    {
+        id: 2,
+        name: "Pasar Laguboti",
+        image: "{{ asset('Images/placeholder.svg') }}",
+        description: "Pasar Laguboti memiliki sejarah yang kaya sejak era kolonial Belanda. Pasar ini terkenal dengan perdagangan rempah-rempah dan hasil pertanian lokal. Hingga kini, pasar ini masih menjadi salah satu pusat perdagangan penting di Kabupaten Toba. Pasar Laguboti juga dikenal sebagai tempat jual beli ulos (kain tradisional Batak) berkualitas tinggi."
+    },
+    // {
+    //     id: 3,
+    //     name: "Pasar Siborong-borong",
+    //     image: "{{ asset('Images/placeholder.svg') }}",
+    //     description: "Pasar Siborong-borong didirikan pada tahun 1935 dan menjadi pusat perdagangan penting yang menghubungkan daerah Toba dengan Tapanuli Utara. Pasar ini terkenal dengan keragaman produk pertanian dan kerajinan tangan tradisional Batak. Pasar ini juga menjadi tempat pertemuan berbagai kelompok etnis, menciptakan dinamika budaya yang unik."
+    // },
+    {
+        id: 4,
+        name: "Pasar Parsoburan",
+        image: "{{ asset('Images/placeholder.svg') }}",
+        description: "Pasar Parsoburan memiliki sejarah yang dimulai sejak tahun 1940-an. Pasar ini menjadi tempat penting bagi masyarakat lokal untuk menjual hasil pertanian dan perikanan dari Danau Toba. Hingga kini, pasar ini tetap menjadi pusat ekonomi yang vital. Pasar Parsoburan terkenal dengan ikan segar dan berbagai jenis sayuran dataran tinggi."
+    },
+    {
+        id: 5,
+        name: "Pasar Ajibata",
+        image: "{{ asset('Images/placeholder.svg') }}",
+        description: "Pasar Ajibata terletak di tepi Danau Toba dan memiliki sejarah sebagai pasar nelayan sejak tahun 1950. Pasar ini terkenal dengan ikan segar dari Danau Toba dan menjadi salah satu destinasi wisata kuliner di Kabupaten Toba. Pengunjung dapat menikmati pemandangan danau yang indah sambil berbelanja berbagai hasil perikanan lokal."
+    },
+    {
+        id: 6,
+        name: "Pasar Lumban Julu",
+        image: "{{ asset('Images/placeholder.svg') }}",
+        description: "Pasar Lumban Julu didirikan pada tahun 1945 setelah kemerdekaan Indonesia. Pasar ini menjadi pusat perdagangan hasil pertanian dari dataran tinggi sekitar Lumban Julu dan terkenal dengan sayuran segar dan buah-buahan lokal. Pasar ini memiliki peran penting dalam mendukung ekonomi petani di daerah sekitarnya."
+    },
+    {
+        id: 7,
+        name: "Pasar Porsea",
+        image: "{{ asset('Images/placeholder.svg') }}",
+        description: "Pasar Porsea memiliki sejarah yang dimulai sejak tahun 1930-an. Pasar ini berkembang pesat setelah dibangunnya pabrik kertas di daerah tersebut dan menjadi pusat ekonomi yang penting bagi masyarakat Porsea dan sekitarnya. Pasar ini menawarkan berbagai produk lokal dan menjadi pusat aktivitas ekonomi di kawasan timur Kabupaten Toba."
+    },
+    {
+        id: 8,
+        name: "Pasar Sigumpar",
+        image: "{{ asset('Images/placeholder.svg') }}",
+        description: "Pasar Sigumpar adalah salah satu pasar tradisional yang telah ada sejak tahun 1940. Pasar ini terkenal dengan perdagangan ulos (kain tradisional Batak) dan menjadi pusat pelestarian budaya Batak melalui perdagangan kerajinan tradisional. Para pengrajin ulos dari berbagai desa di sekitar Sigumpar membawa karya terbaik mereka ke pasar ini."
+    },
+    {
+        id: 9,
+        name: "Pasar Meat",
+        image: "{{ asset('Images/placeholder.svg') }}",
+        description: "Pasar Meat didirikan pada tahun 1955 dan menjadi pusat perdagangan hasil pertanian dari daerah sekitar. Pasar ini terkenal dengan kopi dan hasil perkebunan lainnya yang menjadi komoditas unggulan dari daerah Meat. Kopi Meat memiliki cita rasa khas yang dicari oleh penikmat kopi dari berbagai daerah."
+    },
+    {
+        id: 10,
+        name: "Pasar Siantar Narumonda",
+        image: "{{ asset('Images/placeholder.svg') }}",
+        description: "Pasar Siantar Narumonda memiliki sejarah yang dimulai sejak tahun 1960. Pasar ini menjadi pusat perdagangan yang menghubungkan daerah Toba dengan Simalungun dan terkenal dengan keragaman produk dari kedua daerah tersebut. Pasar ini menjadi tempat bertemunya berbagai budaya dan tradisi kuliner dari kedua daerah."
+    },
+    {
+        id: 11,
+        name: "Pasar Habinsaran",
+        image: "{{ asset('Images/placeholder.svg') }}",
+        description: "Pasar Habinsaran didirikan pada tahun 1965 dan menjadi pusat ekonomi penting di daerah timur Kabupaten Toba. Pasar ini terkenal dengan hasil pertanian dari dataran tinggi Habinsaran yang subur. Sayuran dan buah-buahan dari daerah ini dikenal memiliki kualitas yang sangat baik karena kondisi tanah dan iklim yang ideal."
+    },
+    {
+        id: 12,
+        name: "Pasar Silaen",
+        image: "{{ asset('Images/placeholder.svg') }}",
+        description: "Pasar Silaen memiliki sejarah yang dimulai sejak tahun 1950. Pasar ini menjadi pusat perdagangan hasil pertanian dan peternakan dari daerah Silaen dan sekitarnya. Hingga kini, pasar ini tetap menjadi pusat ekonomi yang penting. Produk susu dan olahan susu dari peternakan lokal menjadi salah satu daya tarik utama pasar ini."
+    },
+    {
+        id: 13,
+        name: "Pasar Tambunan",
+        image: "{{ asset('Images/placeholder.svg') }}",
+        description: "Pasar Tambunan adalah salah satu pasar tradisional yang telah ada sejak tahun 1970. Pasar ini terkenal dengan perdagangan hasil pertanian dan kerajinan tangan dari daerah Tambunan dan sekitarnya. Pasar ini juga menjadi pusat pertukaran budaya dan tradisi masyarakat lokal melalui berbagai festival dan kegiatan adat yang sering diadakan di sekitar pasar."
+    }
+];
+
+// Market Lightbox
+const marketItems = document.querySelectorAll('.gallery-item[data-market-id]');
+const marketLightbox = document.getElementById('market-lightbox');
+const marketLightboxImg = document.getElementById('market-lightbox-img');
+const marketName = document.getElementById('market-name');
+const marketDescription = document.getElementById('market-description');
+const closeMarketLightbox = document.getElementById('close-market-lightbox');
+
+// Open market lightbox when market item is clicked
+if (marketItems && marketLightbox) {
+    marketItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation(); // Prevent triggering the gallery lightbox
+            
+            const marketId = parseInt(this.getAttribute('data-market-id'));
+            const market = marketData.find(m => m.id === marketId);
+            
+            if (market) {
+                // Set the market image
+                if (marketLightboxImg) {
+                    marketLightboxImg.src = market.image;
+                    marketLightboxImg.alt = market.name;
+                }
+                
+                // Set the market name and description
+                if (marketName) marketName.textContent = market.name;
+                if (marketDescription) marketDescription.textContent = market.description;
+                
+                // Show the lightbox
+                marketLightbox.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
+            }
+        });
+    });
+
+    // Close market lightbox when close button is clicked
+    if (closeMarketLightbox) {
+        closeMarketLightbox.addEventListener('click', function() {
+            marketLightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+
+    // Close market lightbox when clicking outside the content
+    marketLightbox.addEventListener('click', function(e) {
+        if (e.target === marketLightbox) {
+            marketLightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Close market lightbox with ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && marketLightbox.classList.contains('active')) {
+            marketLightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+}
         });
     </script>
 </body>
