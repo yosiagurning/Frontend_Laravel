@@ -1151,13 +1151,13 @@
 
         <div class="gallery-grid">
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100" data-market-id="1">
-                <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Balige">
+                <img src="{{ asset('Images/Balige.jpg') }}" alt="Pasar Balige">
                 <div class="description">
                     <i class="fas fa-store-alt mr-2"></i> Pasar Balige
                 </div>
             </div>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200" data-market-id="2">
-                <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Laguboti">
+                <img src="{{ asset('Images/lAGUBOTI.jpg') }}" alt="Pasar Laguboti">
                 <div class="description">
                     <i class="fas fa-store-alt mr-2"></i> Pasar Laguboti
                 </div>
@@ -1169,31 +1169,31 @@
                 </div>
             </div> --}}
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100" data-market-id="4">
-                <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Parsoburan">
+                <img src="{{ asset('Images/parsoburan.jpg') }}" alt="Pasar Parsoburan">
                 <div class="description">
                     <i class="fas fa-store-alt mr-2"></i> Pasar Parsoburan
                 </div>
             </div>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200" data-market-id="5">
-                <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Ajibata">
+                <img src="{{ asset('Images/ajibata.jpeg') }}" alt="Pasar Ajibata">
                 <div class="description">
                     <i class="fas fa-store-alt mr-2"></i> Pasar Ajibata
                 </div>
             </div>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" data-market-id="6">
-                <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Lumban Julu">
+                <img src="{{ asset('Images/Lumbanjulu.jpg') }}" alt="Pasar Lumban Julu">
                 <div class="description">
                     <i class="fas fa-store-alt mr-2"></i> Pasar Lumban Julu
                 </div>
             </div>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100" data-market-id="7">
-                <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Porsea">
+                <img src="{{ asset('Images/porsea2.jpg') }}" alt="Pasar Porsea">
                 <div class="description">
                     <i class="fas fa-store-alt mr-2"></i> Pasar Porsea
                 </div>
             </div>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200" data-market-id="8">
-                <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Silimbat">
+                <img src="{{ asset('Images/Silimbat.jpg') }}" alt="Pasar Silimbat">
                 <div class="description">
                     <i class="fas fa-store-alt mr-2"></i> Pasar Silimbat
                 </div>
@@ -1205,19 +1205,19 @@
                 </div> --}}
             </div>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100" data-market-id="10">
-                <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Lumban Lobu">
+                <img src="{{ asset('Images/Lumban Lobu.JPG') }}" alt="Pasar Lumban Lobu">
                 <div class="description">
                     <i class="fas fa-store-alt mr-2"></i> Pasar Lumban Lobu
                 </div>
             </div>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200" data-market-id="11">
-                <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Habinsaran">
+                <img src="{{ asset('Images/Habinsaran.jpg') }}" alt="Pasar Habinsaran">
                 <div class="description">
                     <i class="fas fa-store-alt mr-2"></i> Pasar Habinsaran
                 </div>
             </div>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300" data-market-id="12">
-                <img src="{{ asset('Images/placeholder.svg') }}" alt="Pasar Silaen">
+                <img src="{{ asset('Images/silaen.jpg') }}" alt="Pasar Silaen">
                 <div class="description">
                     <i class="fas fa-store-alt mr-2"></i> Pasar Silaen
                 </div>
@@ -1387,39 +1387,39 @@
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
                 <img src="{{ asset('Images/galeri1.jpg') }}" alt="Pasar Toba">
                 <div class="description">
-                    <i class="fas fa-store-alt mr-2"></i> Pasar Toba
+                    <i class="fas fa-store-alt mr-2"></i> Foto Bersama Tim Dinas Koperindag
                 </div>
             </div>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
                 <img src="{{ asset('Images/galeri2.jpg') }}" alt="Aktivitas Pasar">
                 <div class="description">
-                    <i class="fas fa-users mr-2"></i> Aktivitas Pasar
+                    <i class="fas fa-users mr-2"></i> Sharing Informasi Harga
                 </div>
             </div>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
                 <img src="{{ asset('Images/galeri3.jpg') }}" alt="Komoditi Pasar">
                 <div class="description">
-                    <i class="fas fa-carrot mr-2"></i> Komoditi Pasar
+                    <i class="fas fa-carrot mr-2"></i> Pengenalan Website yang dimiliki Koperindag
                 </div>
             </div>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
                 <img src="{{ asset('Images/galeri4.jpg') }}" alt="Transaksi Pasar">
                 <div class="description">
-                    <i class="fas fa-hand-holding-usd mr-2"></i> Transaksi Pasar
+                    <i class="fas fa-hand-holding-usd mr-2"></i> Requirement Bersama Dinas Koperindag
                 </div>
             </div>
-            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="500">
+            {{-- <div class="gallery-item" data-aos="zoom-in" data-aos-delay="500">
                 <img src="{{ asset('Images/galeri5.jpeg') }}" alt="Pedagang Lokal">
                 <div class="description">
                     <i class="fas fa-user-friends mr-2"></i> Pedagang Lokal
                 </div>
-            </div>
-            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="600">
+            </div> --}}
+            {{-- <div class="gallery-item" data-aos="zoom-in" data-aos-delay="600">
                 <img src="{{ asset('Images/galeri6.jpeg') }}" alt="Suasana Pagi di Pasar">
                 <div class="description">
                     <i class="fas fa-sun mr-2"></i> Suasana Pagi di Pasar
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 
@@ -1855,13 +1855,13 @@ const marketData = [
     {
         id: 1,
         name: "Pasar Balige",
-        image: "{{ asset('Images/placeholder.svg') }}",
+        image: "{{ asset('Images/pasar-balige-onan-balerong.jpg') }}",
         description: "Pasar Balige adalah salah satu pasar tertua di Kabupaten Toba. Didirikan pada tahun 1920, pasar ini awalnya merupakan tempat pertukaran hasil bumi antar penduduk lokal. Seiring perkembangan zaman, pasar ini menjadi pusat ekonomi yang penting di kawasan Balige. Pasar ini terkenal dengan berbagai produk pertanian lokal dan kerajinan tangan khas Batak Toba."
     },
     {
         id: 2,
         name: "Pasar Laguboti",
-        image: "{{ asset('Images/placeholder.svg') }}",
+        image: "{{ asset('Images/2lgbt.jpg') }}",
         description: "Pasar Laguboti memiliki sejarah yang kaya sejak era kolonial Belanda. Pasar ini terkenal dengan perdagangan rempah-rempah dan hasil pertanian lokal. Hingga kini, pasar ini masih menjadi salah satu pusat perdagangan penting di Kabupaten Toba. Pasar Laguboti juga dikenal sebagai tempat jual beli ulos (kain tradisional Batak) berkualitas tinggi."
     },
     // {
@@ -1873,63 +1873,63 @@ const marketData = [
     {
         id: 4,
         name: "Pasar Parsoburan",
-        image: "{{ asset('Images/placeholder.svg') }}",
+        image: "{{ asset('Images/parsoburan.jpg') }}",
         description: "Pasar Parsoburan memiliki sejarah yang dimulai sejak tahun 1940-an. Pasar ini menjadi tempat penting bagi masyarakat lokal untuk menjual hasil pertanian dan perikanan dari Danau Toba. Hingga kini, pasar ini tetap menjadi pusat ekonomi yang vital. Pasar Parsoburan terkenal dengan ikan segar dan berbagai jenis sayuran dataran tinggi."
     },
     {
         id: 5,
         name: "Pasar Ajibata",
-        image: "{{ asset('Images/placeholder.svg') }}",
+        image: "{{ asset('Images/ajibata.jpeg') }}",
         description: "Pasar Ajibata terletak di tepi Danau Toba dan memiliki sejarah sebagai pasar nelayan sejak tahun 1950. Pasar ini terkenal dengan ikan segar dari Danau Toba dan menjadi salah satu destinasi wisata kuliner di Kabupaten Toba. Pengunjung dapat menikmati pemandangan danau yang indah sambil berbelanja berbagai hasil perikanan lokal."
     },
     {
         id: 6,
         name: "Pasar Lumban Julu",
-        image: "{{ asset('Images/placeholder.svg') }}",
+        image: "{{ asset('Images/Lumbanjulu.jpg') }}",
         description: "Pasar Lumban Julu didirikan pada tahun 1945 setelah kemerdekaan Indonesia. Pasar ini menjadi pusat perdagangan hasil pertanian dari dataran tinggi sekitar Lumban Julu dan terkenal dengan sayuran segar dan buah-buahan lokal. Pasar ini memiliki peran penting dalam mendukung ekonomi petani di daerah sekitarnya."
     },
     {
         id: 7,
         name: "Pasar Porsea",
-        image: "{{ asset('Images/placeholder.svg') }}",
+        image: "{{ asset('Images/porsea.jpg') }}",
         description: "Pasar Porsea memiliki sejarah yang dimulai sejak tahun 1930-an. Pasar ini berkembang pesat setelah dibangunnya pabrik kertas di daerah tersebut dan menjadi pusat ekonomi yang penting bagi masyarakat Porsea dan sekitarnya. Pasar ini menawarkan berbagai produk lokal dan menjadi pusat aktivitas ekonomi di kawasan timur Kabupaten Toba."
     },
     {
         id: 8,
-        name: "Pasar Sigumpar",
-        image: "{{ asset('Images/placeholder.svg') }}",
-        description: "Pasar Sigumpar adalah salah satu pasar tradisional yang telah ada sejak tahun 1940. Pasar ini terkenal dengan perdagangan ulos (kain tradisional Batak) dan menjadi pusat pelestarian budaya Batak melalui perdagangan kerajinan tradisional. Para pengrajin ulos dari berbagai desa di sekitar Sigumpar membawa karya terbaik mereka ke pasar ini."
+        name: "Pasar Silimbat",
+        image: "{{ asset('Images/Silimbat.jpg') }}",
+        description: "Pasar Silimbat adalah salah satu pasar tradisional yang telah ada sejak tahun 1940. Pasar ini terkenal dengan perdagangan ulos (kain tradisional Batak) dan menjadi pusat pelestarian budaya Batak melalui perdagangan kerajinan tradisional. Para pengrajin ulos dari berbagai desa di sekitar Sigumpar membawa karya terbaik mereka ke pasar ini."
     },
-    {
-        id: 9,
-        name: "Pasar Meat",
-        image: "{{ asset('Images/placeholder.svg') }}",
-        description: "Pasar Meat didirikan pada tahun 1955 dan menjadi pusat perdagangan hasil pertanian dari daerah sekitar. Pasar ini terkenal dengan kopi dan hasil perkebunan lainnya yang menjadi komoditas unggulan dari daerah Meat. Kopi Meat memiliki cita rasa khas yang dicari oleh penikmat kopi dari berbagai daerah."
-    },
+    // {
+    //     id: 9,
+    //     name: "Pasar Meat",
+    //     image: "{{ asset('Images/placeholder.svg') }}",
+    //     description: "Pasar Meat didirikan pada tahun 1955 dan menjadi pusat perdagangan hasil pertanian dari daerah sekitar. Pasar ini terkenal dengan kopi dan hasil perkebunan lainnya yang menjadi komoditas unggulan dari daerah Meat. Kopi Meat memiliki cita rasa khas yang dicari oleh penikmat kopi dari berbagai daerah."
+    // },
     {
         id: 10,
-        name: "Pasar Siantar Narumonda",
-        image: "{{ asset('Images/placeholder.svg') }}",
-        description: "Pasar Siantar Narumonda memiliki sejarah yang dimulai sejak tahun 1960. Pasar ini menjadi pusat perdagangan yang menghubungkan daerah Toba dengan Simalungun dan terkenal dengan keragaman produk dari kedua daerah tersebut. Pasar ini menjadi tempat bertemunya berbagai budaya dan tradisi kuliner dari kedua daerah."
+        name: "Pasar Lumban Lobu",
+        image: "{{ asset('Images/Lumban Lobu.JPG') }}",
+        description: "Pasar Lumban lobu memiliki sejarah yang dimulai sejak tahun 1960. Pasar ini menjadi pusat perdagangan yang menghubungkan daerah Toba dengan Simalungun dan terkenal dengan keragaman produk dari kedua daerah tersebut. Pasar ini menjadi tempat bertemunya berbagai budaya dan tradisi kuliner dari kedua daerah."
     },
     {
         id: 11,
         name: "Pasar Habinsaran",
-        image: "{{ asset('Images/placeholder.svg') }}",
+        image: "{{ asset('Images/Habinsaran.jpg') }}",
         description: "Pasar Habinsaran didirikan pada tahun 1965 dan menjadi pusat ekonomi penting di daerah timur Kabupaten Toba. Pasar ini terkenal dengan hasil pertanian dari dataran tinggi Habinsaran yang subur. Sayuran dan buah-buahan dari daerah ini dikenal memiliki kualitas yang sangat baik karena kondisi tanah dan iklim yang ideal."
     },
     {
         id: 12,
         name: "Pasar Silaen",
-        image: "{{ asset('Images/placeholder.svg') }}",
+        image: "{{ asset('Images/silaen.jpg') }}",
         description: "Pasar Silaen memiliki sejarah yang dimulai sejak tahun 1950. Pasar ini menjadi pusat perdagangan hasil pertanian dan peternakan dari daerah Silaen dan sekitarnya. Hingga kini, pasar ini tetap menjadi pusat ekonomi yang penting. Produk susu dan olahan susu dari peternakan lokal menjadi salah satu daya tarik utama pasar ini."
     },
-    {
-        id: 13,
-        name: "Pasar Tambunan",
-        image: "{{ asset('Images/placeholder.svg') }}",
-        description: "Pasar Tambunan adalah salah satu pasar tradisional yang telah ada sejak tahun 1970. Pasar ini terkenal dengan perdagangan hasil pertanian dan kerajinan tangan dari daerah Tambunan dan sekitarnya. Pasar ini juga menjadi pusat pertukaran budaya dan tradisi masyarakat lokal melalui berbagai festival dan kegiatan adat yang sering diadakan di sekitar pasar."
-    }
+    // {
+    //     id: 13,
+    //     name: "Pasar Tambunan",
+    //     image: "{{ asset('Images/placeholder.svg') }}",
+    //     description: "Pasar Tambunan adalah salah satu pasar tradisional yang telah ada sejak tahun 1970. Pasar ini terkenal dengan perdagangan hasil pertanian dan kerajinan tangan dari daerah Tambunan dan sekitarnya. Pasar ini juga menjadi pusat pertukaran budaya dan tradisi masyarakat lokal melalui berbagai festival dan kegiatan adat yang sering diadakan di sekitar pasar."
+    // }
 ];
 
 // Market Lightbox
