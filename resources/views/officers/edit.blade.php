@@ -1,0 +1,261 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container py-4">
+    <style>
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background: linear-gradient(135deg, rgb(41, 100, 210) 0%, rgb(34, 108, 177) 100%);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: rgb(26, 69, 170) !important;
+            border-color: rgb(26, 69, 170) !important;
+            color: white !important;
+        }
+
+        .btn-primary:hover {
+            background-color: rgb(26, 69, 170) !important;
+            border-color: rgb(26, 69, 170) !important;
+        }
+
+        .form-section {
+            position: relative;
+            border-left: 4px solid rgb(35, 85, 202);
+            padding-left: 15px;
+            margin-bottom: 25px;
+        }
+
+        .form-icon {
+            color: rgb(24, 91, 193);
+            margin-right: 8px;
+        }
+
+        .image-preview {
+            border: 2px dashed rgb(28, 97, 200);
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 10px;
+            background-color: #f8f9fc;
+            transition: all 0.3s;
+        }
+
+        .image-preview:hover {
+            background-color: #eaecf4;
+        }
+
+        #preview-image {
+            max-width: 100%;
+            max-height: 200px;
+            display: none;
+            margin: 10px auto;
+        }
+    </style>
+
+    <div class="card shadow">
+        <div class="card-header text-white sticky-header">
+            <h2 class="card-title text-center mb-0 py-3">
+                <i class="fa fa-user-edit me-2"></i>Edit Data Petugas
+            </h2>
+        </div>
+
+        <div class="card-body p-4">
+            @if ($errors->any())
+                <div class="alert alert-danger border-left-danger shadow-sm">
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <form action="{{ route('officers.update', $officer->id) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+
+                <div class="form-section">
+                    <h5 class="fw-bold mb-3"><i class="fa fa-user form-icon"></i>Informasi Pribadi</h5>
+
+                    <div class="mb-4">
+                        <label for="name" class="form-label fw-semibold">Nama</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                            <input type="text" name="name" id="name" class="form-control" value="{{ $officer->name }}" required>
+                        </div>
+                    </div>
+
+                    {{-- <div class="mb-4">
+                        <label for="nik" class="form-label fw-semibold">NIK</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-id-card"></i></span>
+                            <input type="text" name="nik" id="nik" class="form-control" value="{{ $officer->nik }}" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="phone" class="form-label fw-semibold">No Telepon</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                            <input type="text" name="phone" id="phone" class="form-control" value="{{ $officer->phone }}" required>
+                        </div>
+                    </div>
+                </div> --}}
+
+                <div class="mb-3">
+                    <label for="nik" class="form-label fw-semibold">NIK</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa fa-id-card"></i></span>
+                        <input type="text" name="nik" id="nik" class="form-control" 
+                               value="{{ $officer->nik }}" required 
+                               pattern="[0-9]{16}" inputmode="numeric" 
+                               oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="phone" class="form-label fw-semibold">No Telepon</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                        <input type="text" name="phone" id="phone" class="form-control" 
+                               value="{{ $officer->phone }}" required 
+                               pattern="[0-9]{11,}" inputmode="numeric" 
+                               oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h5 class="fw-bold mb-3"><i class="fa fa-lock form-icon"></i>Informasi Akun</h5>
+
+                    <div class="mb-4">
+                        <label for="username" class="form-label fw-semibold">Username</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-user-circle"></i></span>
+                            <input type="text" name="username" id="username" class="form-control" value="{{ $officer->username }}" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="password" class="form-label fw-semibold">Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-key"></i></span>
+                            <input type="password" name="password" id="password" class="form-control" minlength="6">
+                            <button type="button" class="btn btn-outline-secondary" onclick="togglePassword()">
+                                <i id="toggleIcon" class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <small class="text-muted mt-1 d-block">
+                            <i class="fa fa-info-circle"></i> Minimal 6 karakter.
+                        </small>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="market_id" class="form-label fw-semibold">Pasar</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-store"></i></span>
+                            <select name="market_id" id="market_id" class="form-control" required>
+                                @foreach ($markets as $market)
+                                    <option value="{{ $market->id }}" {{ $officer->market_id == $market->id ? 'selected' : '' }}>
+                                        {{ $market->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h5 class="fw-bold mb-3"><i class="fa fa-image form-icon"></i>Foto Petugas</h5>
+
+                    <div class="mb-4">
+                        <label for="image" class="form-label fw-semibold">Upload Foto Baru</label>
+                        <div class="image-preview">
+                            <input type="file" name="image" id="image" class="form-control" accept="image/*" onchange="previewImage(this)">
+                            <img id="preview-image" src="#" alt="Preview Foto" class="img-fluid rounded">
+                            <small class="text-muted mt-2 d-block">
+                                <i class="fa fa-info-circle"></i> Format: JPG, PNG. Maksimal: 2MB.
+                            </small>
+                        </div>
+
+                        @if(!empty($officer->image))
+                            <div class="mt-3">
+                                <p class="mb-1">Foto saat ini:</p>
+                                <img src="{{ asset('storage/'.$officer->image) }}" alt="Foto Petugas" width="120" class="img-thumbnail">
+                            </div>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                    <a href="{{ route('officers.index') }}" class="btn btn-outline-secondary me-md-2">
+                        <i class="fa fa-arrow-left me-1"></i>Kembali
+                    </a>
+                    <button type="submit" class="btn btn-primary shadow">
+                        <i class="fa fa-save me-1"></i>Update
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+function previewImage(input) {
+    var preview = document.getElementById('preview-image');
+    if (!input.files.length) {
+        preview.style.display = 'none';
+        preview.src = '#';
+        return;
+    }
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        preview.src = e.target.result;
+        preview.style.display = 'block';
+    }
+    reader.readAsDataURL(input.files[0]);
+}
+
+function togglePassword() {
+    let passwordField = document.getElementById("password");
+    let toggleIcon = document.getElementById("toggleIcon");
+
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        toggleIcon.classList.remove("fa-eye");
+        toggleIcon.classList.add("fa-eye-slash");
+    } else {
+        passwordField.type = "password";
+        toggleIcon.classList.remove("fa-eye-slash");
+        toggleIcon.classList.add("fa-eye");
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const formInputs = document.querySelectorAll('.form-control');
+    formInputs.forEach(input => {
+        input.addEventListener('focus', function () {
+            this.closest('.input-group').style.transition = 'all 0.3s';
+            this.closest('.input-group').style.transform = 'translateX(5px)';
+        });
+        input.addEventListener('blur', function () {
+            this.closest('.input-group').style.transform = 'translateX(0)';
+        });
+    });
+
+    // Spinner ketika form disubmit
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function () {
+        const btn = form.querySelector('button[type="submit"]');
+        btn.innerHTML = `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Updating...`;
+        btn.disabled = true;
+    });
+});
+</script>
+
+<!-- Pastikan FontAwesome di-load untuk ikon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+@endsection
