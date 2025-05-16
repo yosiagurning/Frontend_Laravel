@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="card-body">            
-            <!-- Form Pencarian - Improved styling -->
+            <!-- Form Pencarian -->
             <div class="mb-4">
                 <form action="{{ route('categories.index') }}" method="GET">
                     <div class="input-group">
@@ -49,7 +49,6 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td class="fw-medium">{{ $category['name'] }}</td>
                                 <td>{{ $category['description'] ?? 'Tidak ada deskripsi' }}</td>
-                                <!-- Improved Pasar Terkait display -->
                                 <td>
                                     @if (!empty($category['markets']) && count($category['markets']) > 0)
                                         <div class="markets-container">
@@ -95,7 +94,7 @@
     </div>
 </div>
 
-<!-- Modal Konfirmasi Hapus - Improved styling -->
+<!-- Modal Konfirmasi Hapus -->
 <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content border-0 shadow">
@@ -146,9 +145,8 @@
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
         <div class="toast-body" id="toastMessage">
-    <!-- Pesan akan diganti via JavaScript -->
-</div>
-
+            <!-- Pesan akan diganti via JavaScript -->
+        </div>
     </div>
 </div>
 @endsection
@@ -189,48 +187,30 @@
     }
     
     /* Pastikan backdrop modal menutupi seluruh halaman */
-/* 🔧 Kunci agar backdrop selalu full height */
-.modal-backdrop.show {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh !important;
-    z-index: 1050;
-    opacity: 0.7;
-    background-color: rgba(0, 0, 0, 0.6) !important;
-}
-
-/* 🔒 Pastikan modal container berada di atas konten yang di-scroll */
-.modal {
-    z-index: 1060;
-}
-
-/* 🔄 Mencegah scroll latar belakang saat modal aktif */
-body.modal-open {
-    overflow: hidden !important;
-}
-
-/* Toast notification fixed bottom right */
-#categoryToast {
-    min-width: 300px;
-    max-width: 400px;
-    background-color: #198754;
-    color: white;
-}
-
-
+    .modal-backdrop.show {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh !important;
+        z-index: 1050;
+        opacity: 0.7;
+        background-color: rgba(0, 0, 0, 0.6) !important;
+    }
 
     /* Modal styling */
-    .modal-backdrop.show {
-        opacity: 0.7;
+    .modal {
+        z-index: 1060;
     }
-    
-    .modal-content {
-        border-radius: 0.5rem;
-        overflow: hidden;
+
+    /* Toast notification fixed bottom right */
+    #categoryToast {
+        min-width: 300px;
+        max-width: 400px;
+        background-color: #198754;
+        color: white;
     }
-    
+
     /* Button styling */
     .btn {
         border-radius: 0.25rem;
@@ -239,21 +219,6 @@ body.modal-open {
     
     .btn-sm {
         padding: 0.375rem 0.75rem;
-    }
-    
-    /* Toast styling */
-    .toast {
-        border: none;
-        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-        border-radius: 0.5rem;
-        overflow: hidden;
-    }
-    
-    /* Loading button */
-    .btn-loading .spinner-border {
-        vertical-align: text-top;
-        width: 1rem;
-        height: 1rem;
     }
     
     /* Alert styling */
@@ -333,10 +298,8 @@ document.addEventListener('DOMContentLoaded', function() {
             success: function(data) {
                 // Sembunyikan modal
                 submitButton.html('<i class="fas fa-trash me-1"></i> Hapus');
-submitButton.prop('disabled', false);
-
-// Sembunyikan modal
-deleteModal.hide();
+                submitButton.prop('disabled', false);
+                deleteModal.hide();
                 
                 // Tampilkan toast notification
                 $('#toastMessage').text(data.message || 'Kategori berhasil dihapus');
