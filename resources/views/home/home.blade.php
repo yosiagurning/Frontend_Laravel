@@ -1435,7 +1435,7 @@
 
         <!-- Footer -->
         <footer>
-                <div class="footer-text" data-aos="fade-up" data-aos-delay="100">
+                <div class="footer-text" data-aos="fade-up" data-aos-delay="1">
                     <p>&copy; {{ date('Y') }} PARTOBA - Dinas Koperasi, UKM, Perindustrian dan Perdagangan Kabupaten Toba.
                         All rights reserved.</p>
                 </div>
