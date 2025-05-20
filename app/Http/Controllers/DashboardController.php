@@ -11,7 +11,7 @@ class DashboardController extends Controller
     public function index(Request $request)
     {
         // Ambil data dari API backend yang benar
-        $response = Http::get('http://localhost:8081/api/dashboard-data');
+        $response = Http::get('http://localhost:8080/api/dashboard-data');
 
         if ($response->failed()) {
             return view('dashboard', [

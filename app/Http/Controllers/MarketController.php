@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Log;
 
 class MarketController extends Controller
 {
-    protected $apiUrl = 'http://localhost:8081/api/markets';
+    protected $apiUrl = 'http://localhost:8080/api/markets';
 
     public function index(Request $request)
     {

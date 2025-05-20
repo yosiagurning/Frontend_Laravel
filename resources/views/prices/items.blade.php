@@ -120,12 +120,13 @@
                                         <td>
                                             @php
                                                 $changePercent = round($price['change_percent'], 2);
-                                                // Swap the badge classes and icons
+                                                // Price increases (positive) should be red/danger
+                                                // Price decreases (negative) should be green/success
                                                 $badgeClass =
                                                     $changePercent > 0
-                                                        ? 'success'
+                                                        ? 'danger'
                                                         : ($changePercent < 0
-                                                            ? 'danger'
+                                                            ? 'success'
                                                             : 'secondary');
                                                 $icon =
                                                     $changePercent > 0

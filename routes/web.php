@@ -44,7 +44,7 @@ Route::get('/', [HomeController::class, 'index']);
 
 
 Route::get('/markets', function () {
-    $response = Http::get('http://127.0.0.1:8081/markets'); // Pastikan ini benar
+    $response = Http::get('http://127.0.0.1:8080/markets'); // Pastikan ini benar
     return view('markets.index', ['markets' => $response->json()]);
 });
 Route::get('/market', [MarketController::class, 'index'])->name('market.index');

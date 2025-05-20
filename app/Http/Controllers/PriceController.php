@@ -12,7 +12,7 @@ class PriceController extends Controller
 
     public function __construct()
     {
-        $this->apiBase = env('API_BASE_URL'); // Contoh: http://localhost:8081/api
+        $this->apiBase = env('API_BASE_URL'); // Contoh: http://localhost:8080/api
     }
 
     public function index()

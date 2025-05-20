@@ -17,7 +17,7 @@ class OfficerController extends Controller
     {
         try {
             // Ambil data dari backend Golang
-            $response = Http::get('http://localhost:8081/api/officers');
+            $response = Http::get('http://localhost:8080/api/officers');
 
             if ($response->failed()) {
                 return response()->json(['error' => 'Gagal mengambil data dari backend'], 500);
@@ -107,7 +107,7 @@ class OfficerController extends Controller
             'is_active' => true
         ];
     
-        $response = Http::post('http://localhost:8081/api/market-officers', $payload);
+        $response = Http::post('http://localhost:8080/api/market-officers', $payload);
     
         if ($response->failed()) {
             $error = $response->json('error') ?? 'Gagal menambahkan petugas ke backend Golang.';
@@ -168,7 +168,7 @@ public function destroy($id)
         $officer = Officer::findOrFail($id);
         
         // Hapus dari backend Golang
-        $response = Http::delete("http://localhost:8081/api/market-officers/{$id}");
+        $response = Http::delete("http://localhost:8080/api/market-officers/{$id}");
         
         if ($response->failed()) {
             return response()->json([
