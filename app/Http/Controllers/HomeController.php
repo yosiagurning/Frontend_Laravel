@@ -15,7 +15,7 @@ class HomeController extends Controller
     // Modify the index method to include pagination parameters
     public function index(Request $request)
     {
-        $apiUrl = "http://localhost:8080/api/prices";
+        $apiUrl = "https://go-backend-production-91cc.up.railway.app/api/prices";
         
         // Add search parameter if provided
         if ($request->has('search')) {

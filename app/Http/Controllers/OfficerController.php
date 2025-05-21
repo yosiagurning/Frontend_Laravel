@@ -17,7 +17,7 @@ class OfficerController extends Controller
     {
         try {
             // Ambil data dari backend Golang
-            $response = Http::get('http://localhost:8080/api/officers');
+            $response = Http::get('https://go-backend-production-91cc.up.railway.app/api/officers');
 
             if ($response->failed()) {
                 return response()->json(['error' => 'Gagal mengambil data dari backend'], 500);

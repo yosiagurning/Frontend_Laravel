@@ -33,7 +33,7 @@ class AuthController extends Controller
             // Kirim request ke backend Golang
             $response = Http::timeout(5)
             ->withHeaders(['Accept' => 'application/json'])
-            ->post('http://localhost:8080/api/login', [
+            ->post('https://go-backend-production-91cc.up.railway.app/api/login', [
                 'username' => $request->username,
                 'password' => $request->password,
             ]);

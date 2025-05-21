@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Log;
 
 class MarketController extends Controller
 {
-    protected $apiUrl = 'http://localhost:8080/api/markets';
+    protected $apiUrl = 'https://go-backend-production-91cc.up.railway.app/api/markets';
 
     public function index(Request $request)
     {
