@@ -1389,25 +1389,25 @@
 
             <div class="gallery-grid">
                 <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="{{ asset('Images/galeri1.jpg') }}" alt="Pasar Toba">
+                    <img src="{{ asset('Images/Galeri1.jpg') }}" alt="Pasar Toba">
                     <div class="description">
                         <i class="fas fa-store-alt mr-2"></i> Foto Bersama Tim Dinas Koperindag
                     </div>
                 </div>
                 <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="{{ asset('Images/galeri2.jpg') }}" alt="Aktivitas Pasar">
+                    <img src="{{ asset('Images/Galeri2.jpg') }}" alt="Aktivitas Pasar">
                     <div class="description">
                         <i class="fas fa-users mr-2"></i> Sharing Informasi Harga
                     </div>
                 </div>
                 <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="{{ asset('Images/galeri3.jpg') }}" alt="Komoditi Pasar">
+                    <img src="{{ asset('Images/Galeri3.jpg') }}" alt="Komoditi Pasar">
                     <div class="description">
                         <i class="fas fa-carrot mr-2"></i> Pengenalan Website yang dimiliki Koperindag
                     </div>
                 </div>
                 <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
-                    <img src="{{ asset('Images/galeri4.jpg') }}" alt="Transaksi Pasar">
+                    <img src="{{ asset('Images/Galeri4.jpg') }}" alt="Transaksi Pasar">
                     <div class="description">
                         <i class="fas fa-hand-holding-usd mr-2"></i> Requirement Bersama Dinas Koperindag
                     </div>
