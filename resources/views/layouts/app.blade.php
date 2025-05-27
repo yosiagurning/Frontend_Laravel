@@ -26,18 +26,22 @@
             --text-dark: #333333;
             --sidebar-width: 280px;
             --sidebar-width-collapsed: 80px;
+            --topbar-height: 70px;
             --transition-speed: 0.3s;
+        }
+        
+        html, body {
+            height: 100%;
+            overflow: hidden; /* Prevent body scroll */
         }
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8f9fa;
-            transition: margin-left var(--transition-speed);
             opacity: 0;
             animation: fadeIn 0.4s ease-out forwards 0.2s;
-            min-height: 100%;
-    height: auto;
-    overflow-y: auto !important;
+            margin: 0;
+            padding: 0;
         }
         
         @keyframes fadeIn {
@@ -106,13 +110,13 @@
             font-weight: 500;
         }
         
-        /* Sidebar Styles */
+        /* Sidebar Styles - FIXED POSITION */
         .sidebar {
             width: var(--sidebar-width);
-            position: absolute;
+            position: fixed; /* Changed from absolute to fixed */
             top: 0;
             left: 0;
-            min-height: 100%;
+            height: 100vh; /* Full viewport height */
             background: linear-gradient(180deg, var(--primary-color), var(--primary-dark));
             color: white;
             z-index: 1000;
@@ -140,7 +144,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 120px; /* Fixed height for logo container */
+            height: 120px;
         }
         
         .sidebar img {
@@ -188,21 +192,19 @@
             transform: translateX(4px);
         }
         
-        /* Content Area */
+        /* Content Area - ADJUSTED FOR FIXED SIDEBAR */
         .content {
-            margin-left: var(--sidebar-width);
-            transition: margin-left var(--transition-speed);
-            min-height: 100vh;
+            margin-left: var(--sidebar-width); /* Space for fixed sidebar */
+            height: 100vh; /* Full viewport height */
             background-color: #f8f9fa;
             position: relative;
             display: flex;
             flex-direction: column;
-            flex: 1;
-            overflow-y: auto;
-            height: 100%;
+            overflow: hidden; /* Prevent content overflow */
+            transition: margin-left var(--transition-speed);
         }
         
-        /* Topbar Styles */
+        /* Topbar Styles - FIXED POSITION */
         .topbar {
             background-color: white;
             padding: 15px 25px;
@@ -211,9 +213,13 @@
             align-items: center;
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            position: sticky;
+            position: fixed; /* Fixed position */
             top: 0;
+            left: var(--sidebar-width); /* Start after sidebar */
+            right: 0; /* Extend to right edge */
+            height: var(--topbar-height);
             z-index: 900;
+            transition: left var(--transition-speed);
         }
         
         .topbar-left {
@@ -323,16 +329,15 @@
             color: #6c757d;
         }
         
-        /* Main Content Area */
+        /* Main Content Area - SCROLLABLE */
         .main-content {
-            padding: 25px;
-            background-color: #f8f9fa;
-            position: relative;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            padding-bottom: 80px;
-        }
+    margin-top: var(--topbar-height); /* Space for fixed topbar */
+    padding: 25px 25px 80px 25px; /* Add bottom padding for footer space */
+    background-color: #f8f9fa;
+    flex: 1;
+    overflow-y: auto; /* Enable scrolling for content */
+    height: calc(100vh - var(--topbar-height)); /* Adjust height */
+}
         
         /* Professional Loading Overlay */
         .loading-overlay {
@@ -620,26 +625,44 @@
             transform: scaleX(1);
         }
         
-        /* Footer Styles */
+        /* Footer Styles - REMOVED STICKY POSITIONING */
         .content-footer {
-            background-color: white;
-            padding: 15px 25px;
-            text-align: center;
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
-            margin-top: auto;
-            font-size: 14px;
-            color: #6c757d;
-        }
+    position: fixed;
+    bottom: 0;
+    left: var(--sidebar-width); /* Start after sidebar */
+    right: 0; /* Extend to right edge */
+    background-color: white;
+    padding: 15px 25px;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    font-size: 14px;
+    color: #6c757d;
+    z-index: 800; /* Below topbar but above content */
+    transition: left var(--transition-speed); /* Smooth transition when sidebar toggles */
+}
+
         
         /* Responsive Design */
         @media (max-width: 992px) {
+            .content-footer {
+        left: 0; /* Full width on mobile */
+    }
+    
+    /* When sidebar is active on mobile, adjust footer */
+    .sidebar.active ~ .content .content-footer {
+        left: 0; /* Keep footer full width even when sidebar is open */
+    }
             .sidebar {
                 transform: translateX(-100%);
             }
             
             .content {
                 margin-left: 0;
+            }
+            
+            .topbar {
+                left: 0; /* Full width on mobile */
             }
             
             .menu-toggle {
@@ -664,14 +687,30 @@
             .overlay.active {
                 display: block;
             }
+            
             .toast-container {
-    z-index: 1080 !important;
-    pointer-events: none;
-}
-.toast {
-    pointer-events: auto;
-}
-
+                z-index: 1080 !important;
+                pointer-events: none;
+            }
+            
+            .toast {
+                pointer-events: auto;
+            }
+        }
+        
+        /* Table responsive improvements */
+        .table-responsive {
+            max-height: calc(100vh - 300px); /* Limit table height */
+            overflow-y: auto;
+        }
+        
+        /* Ensure modals appear above fixed elements */
+        .modal {
+            z-index: 1060;
+        }
+        
+        .modal-backdrop {
+            z-index: 1050;
         }
     </style>
 </head>
@@ -866,12 +905,12 @@
             <div id="actualContent" style="display: none;">
                 @yield('content')
             </div>
-        </div>
-        
-        <!-- Footer moved to content area -->
-        <div class="content-footer">
-            &copy; {{ date('Y') }} PARTOBA - Dinas Koperasi, UKM, Perindustrian dan Perdagangan Kabupaten Toba.
-            All rights reserved.
+            
+            <!-- Footer moved inside main-content for proper scrolling -->
+            <div class="content-footer">
+                &copy; {{ date('Y') }} PARTOBA - Dinas Koperasi, UKM, Perindustrian dan Perdagangan Kabupaten Toba.
+                All rights reserved.
+            </div>
         </div>
     </div>
 
@@ -972,8 +1011,19 @@
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('overlay');
+            const topbar = document.querySelector('.topbar');
+            
             sidebar.classList.toggle('active');
             overlay.classList.toggle('active');
+            
+            // Adjust topbar position on mobile when sidebar is toggled
+            if (window.innerWidth <= 992) {
+                if (sidebar.classList.contains('active')) {
+                    topbar.style.left = '280px';
+                } else {
+                    topbar.style.left = '0';
+                }
+            }
         }
 
         // Toggle user dropdown
@@ -1076,6 +1126,22 @@
             
             window.XMLHttpRequest = newXHR;
         })();
+        
+        // Handle window resize for responsive behavior
+        window.addEventListener('resize', function() {
+            const sidebar = document.getElementById('sidebar');
+            const topbar = document.querySelector('.topbar');
+            
+            if (window.innerWidth > 992) {
+                // Desktop view
+                sidebar.classList.remove('active');
+                document.getElementById('overlay').classList.remove('active');
+                topbar.style.left = 'var(--sidebar-width)';
+            } else {
+                // Mobile view
+                topbar.style.left = '0';
+            }
+        });
     </script>
     @stack('scripts')
     @yield('scripts')
