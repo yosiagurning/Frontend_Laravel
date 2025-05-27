@@ -3,23 +3,45 @@
 @section('content')
 <div class="container py-4">
     <style>
-        .sticky-header {
-            position: sticky;
-            top: 0;
-            z-index: 999;
+        /* Header yang bergerak dengan scroll */
+        .header-section {
+            position: relative;
             background: linear-gradient(135deg, rgb(41, 100, 210) 0%, rgb(34, 108, 177) 100%);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        /* Floating header yang muncul saat scroll */
+        .floating-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, rgb(41, 100, 210) 0%, rgb(34, 108, 177) 100%);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+            display: none;
+        }
+
+        .floating-header.show {
+            transform: translateY(0);
+            display: block;
         }
 
         .btn-primary {
             background-color: rgb(26, 69, 170) !important;
             border-color: rgb(26, 69, 170) !important;
             color: white !important;
+            transition: all 0.3s ease;
         }
 
         .btn-primary:hover {
-            background-color: rgb(26, 69, 170) !important;
-            border-color: rgb(26, 69, 170) !important;
+            background-color: rgb(34, 108, 177) !important;
+            border-color: rgb(34, 108, 177) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .form-section {
@@ -27,6 +49,13 @@
             border-left: 4px solid rgb(35, 85, 202);
             padding-left: 15px;
             margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .form-section:hover {
+            border-left-width: 6px;
+            background-color: #f8f9fc;
+            border-radius: 0.375rem;
         }
 
         .form-icon {
@@ -53,17 +82,94 @@
             max-height: 200px;
             display: none;
             margin: 10px auto;
+            border-radius: 0.375rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Enhanced form styling */
+        .input-group {
+            transition: all 0.3s ease;
+        }
+
+        .input-group:focus-within {
+            box-shadow: 0 0 0 0.25rem rgba(41, 100, 210, 0.15);
+        }
+
+        .input-group-text {
+            background-color: #f8f9fc;
+            border-color: #d1d3e2;
+        }
+
+        .form-control {
+            border-color: #d1d3e2;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: rgb(41, 100, 210);
+            box-shadow: none;
+        }
+
+        .card {
+            border: none;
+            border-radius: 0.375rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Alert styling */
+        .alert-danger {
+            border-left: 4px solid #dc3545;
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Content wrapper padding */
+        .content-wrapper {
+            padding-top: 20px;
+        }
+
+        /* Password toggle button styling */
+        .btn-outline-secondary {
+            border-color: #d1d3e2;
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: #f8f9fc;
+            border-color: rgb(41, 100, 210);
+            color: rgb(41, 100, 210);
         }
     </style>
 
+    <!-- Floating Header (muncul saat scroll) -->
+    <div class="floating-header" id="floatingHeader">
+        <div class="container">
+            <div class="card-header text-white">
+                <h2 class="card-title text-center mb-0 py-3">
+                    <i class="fa fa-user-edit me-2"></i>Edit Data Petugas
+                </h2>
+            </div>
+        </div>
+    </div>
+
     <div class="card shadow">
-        <div class="card-header text-white sticky-header">
+        <!-- Header utama yang bergerak dengan scroll -->
+        <div class="card-header text-white header-section" id="mainHeader">
             <h2 class="card-title text-center mb-0 py-3">
                 <i class="fa fa-user-edit me-2"></i>Edit Data Petugas
             </h2>
         </div>
 
-        <div class="card-body p-4">
+        <div class="card-body p-4 content-wrapper">
             @if ($errors->any())
                 <div class="alert alert-danger border-left-danger shadow-sm">
                     <ul class="mb-0">
@@ -89,42 +195,34 @@
                         </div>
                     </div>
 
-                    {{-- <div class="mb-4">
+                    <div class="mb-4">
                         <label for="nik" class="form-label fw-semibold">NIK</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa fa-id-card"></i></span>
-                            <input type="text" name="nik" id="nik" class="form-control" value="{{ $officer->nik }}" required>
+                            <input type="text" name="nik" id="nik" class="form-control" 
+                                   value="{{ $officer->nik }}" required 
+                                   pattern="[0-9]{16}" inputmode="numeric" 
+                                   oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                   maxlength="16">
                         </div>
+                        <small class="text-muted mt-1 d-block">
+                            <i class="fa fa-info-circle"></i> NIK harus 16 digit angka
+                        </small>
                     </div>
-
+                    
                     <div class="mb-4">
                         <label for="phone" class="form-label fw-semibold">No Telepon</label>
                         <div class="input-group">
                             <span class="input-group-text"><i class="fa fa-phone"></i></span>
-                            <input type="text" name="phone" id="phone" class="form-control" value="{{ $officer->phone }}" required>
+                            <input type="text" name="phone" id="phone" class="form-control" 
+                                   value="{{ $officer->phone }}" required 
+                                   pattern="[0-9]{11,}" inputmode="numeric" 
+                                   oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                   minlength="11">
                         </div>
-                    </div>
-                </div> --}}
-
-                <div class="mb-3">
-                    <label for="nik" class="form-label fw-semibold">NIK</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fa fa-id-card"></i></span>
-                        <input type="text" name="nik" id="nik" class="form-control" 
-                               value="{{ $officer->nik }}" required 
-                               pattern="[0-9]{16}" inputmode="numeric" 
-                               oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-                    </div>
-                </div>
-                
-                <div class="mb-3">
-                    <label for="phone" class="form-label fw-semibold">No Telepon</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fa fa-phone"></i></span>
-                        <input type="text" name="phone" id="phone" class="form-control" 
-                               value="{{ $officer->phone }}" required 
-                               pattern="[0-9]{11,}" inputmode="numeric" 
-                               oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                        <small class="text-muted mt-1 d-block">
+                            <i class="fa fa-info-circle"></i> Minimal 11 digit angka
+                        </small>
                     </div>
                 </div>
 
@@ -149,7 +247,7 @@
                             </button>
                         </div>
                         <small class="text-muted mt-1 d-block">
-                            <i class="fa fa-info-circle"></i> Minimal 6 karakter.
+                            <i class="fa fa-info-circle"></i> Minimal 6 karakter. Kosongkan jika tidak ingin mengubah password.
                         </small>
                     </div>
 
@@ -235,6 +333,7 @@ function togglePassword() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Animation for form inputs
     const formInputs = document.querySelectorAll('.form-control');
     formInputs.forEach(input => {
         input.addEventListener('focus', function () {
@@ -246,12 +345,72 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Spinner ketika form disubmit
+    // Header scroll behavior
+    const mainHeader = document.getElementById('mainHeader');
+    const floatingHeader = document.getElementById('floatingHeader');
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const headerHeight = mainHeader.offsetHeight;
+        
+        // Jika scroll melewati header utama, tampilkan floating header
+        if (scrollTop > headerHeight) {
+            floatingHeader.classList.add('show');
+        } else {
+            floatingHeader.classList.remove('show');
+        }
+
+        // Hide floating header saat scroll ke bawah, show saat scroll ke atas
+        if (scrollTop > lastScrollTop && scrollTop > headerHeight + 100) {
+            // Scroll ke bawah - sembunyikan floating header
+            floatingHeader.style.transform = 'translateY(-100%)';
+        } else if (scrollTop < lastScrollTop) {
+            // Scroll ke atas - tampilkan floating header
+            if (scrollTop > headerHeight) {
+                floatingHeader.style.transform = 'translateY(0)';
+            }
+        }
+        
+        lastScrollTop = scrollTop;
+    });
+
+    // Smooth scroll untuk anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Form submit loading state
     const form = document.querySelector('form');
     form.addEventListener('submit', function () {
         const btn = form.querySelector('button[type="submit"]');
         btn.innerHTML = `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Updating...`;
         btn.disabled = true;
+    });
+
+    // NIK validation
+    const nikInput = document.getElementById('nik');
+    nikInput.addEventListener('input', function() {
+        if (this.value.length > 16) {
+            this.value = this.value.slice(0, 16);
+        }
+    });
+
+    // Phone validation
+    const phoneInput = document.getElementById('phone');
+    phoneInput.addEventListener('input', function() {
+        if (this.value.length > 15) {
+            this.value = this.value.slice(0, 15);
+        }
     });
 });
 </script>

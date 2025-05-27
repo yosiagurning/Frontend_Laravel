@@ -3,12 +3,31 @@
 @section('content')
 <div class="container py-4">
     <style>
-        .sticky-header {
-            position: sticky;
-            top: 0;
-            z-index: 999;
+        .header-section {
+            /* Menghapus position sticky agar header bisa bergerak dengan scroll */
+            position: relative;
             background: linear-gradient(135deg, rgb(41, 100, 210) 0%, rgb(34, 108, 177) 100%);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        /* Alternatif: Header yang smooth hide/show saat scroll */
+        .floating-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, rgb(41, 100, 210) 0%, rgb(34, 108, 177) 100%);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+            display: none;
+        }
+
+        .floating-header.show {
+            transform: translateY(0);
+            display: block;
         }
 
         .btn-success {
@@ -54,16 +73,38 @@
             display: none;
             margin: 10px auto;
         }
+
+        /* Smooth scrolling untuk seluruh halaman */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Padding top untuk kompensasi floating header */
+        .content-wrapper {
+            padding-top: 20px;
+        }
     </style>
 
+    <!-- Floating Header (muncul saat scroll) -->
+    <div class="floating-header" id="floatingHeader">
+        <div class="container">
+            <div class="card-header text-white">
+                <h2 class="card-title text-center mb-0 py-3">
+                    <i class="fa fa-edit me-2"></i>Edit Pasar
+                </h2>
+            </div>
+        </div>
+    </div>
+
     <div class="card shadow">
-        <div class="card-header text-white sticky-header">
+        <!-- Header utama yang bergerak dengan scroll -->
+        <div class="card-header text-white header-section" id="mainHeader">
             <h2 class="card-title text-center mb-0 py-3">
                 <i class="fa fa-edit me-2"></i>Edit Pasar
             </h2>
         </div>
 
-        <div class="card-body p-4">
+        <div class="card-body p-4 content-wrapper">
             @if ($errors->any())
                 <div class="alert alert-danger border-left-danger shadow-sm">
                     <ul class="mb-0">
@@ -161,12 +202,56 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Optional: Spinner ketika form disubmit
+    // Spinner ketika form disubmit
     const form = document.querySelector('form');
     form.addEventListener('submit', function () {
         const btn = form.querySelector('button[type="submit"]');
         btn.innerHTML = `<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Updating...`;
         btn.disabled = true;
+    });
+
+    // Header scroll behavior
+    const mainHeader = document.getElementById('mainHeader');
+    const floatingHeader = document.getElementById('floatingHeader');
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const headerHeight = mainHeader.offsetHeight;
+        
+        // Jika scroll melewati header utama, tampilkan floating header
+        if (scrollTop > headerHeight) {
+            floatingHeader.classList.add('show');
+        } else {
+            floatingHeader.classList.remove('show');
+        }
+
+        // Optional: Hide floating header saat scroll ke bawah, show saat scroll ke atas
+        if (scrollTop > lastScrollTop && scrollTop > headerHeight + 100) {
+            // Scroll ke bawah - sembunyikan floating header
+            floatingHeader.style.transform = 'translateY(-100%)';
+        } else if (scrollTop < lastScrollTop) {
+            // Scroll ke atas - tampilkan floating header
+            if (scrollTop > headerHeight) {
+                floatingHeader.style.transform = 'translateY(0)';
+            }
+        }
+        
+        lastScrollTop = scrollTop;
+    });
+
+    // Smooth scroll untuk anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
     });
 });
 </script>
