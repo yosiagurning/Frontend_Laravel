@@ -201,7 +201,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(2, 27, 121, 0.8)), url('{{ asset('images/toba-background.JPEG') }}');
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(2, 27, 121, 0.8)), url('{{ asset('images/toba-background.jpeg') }}');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -1322,25 +1322,25 @@
 
         <div class="gallery-grid">
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
-                <img src="{{ asset('images/galeri1.jpg') }}" alt="Pasar Toba">
+                <img src="{{ asset('images/Galeri1.jpg') }}" alt="Pasar Toba">
                 <div class="description">
                     <i class="fas fa-store-alt mr-2"></i> Foto Bersama Tim Dinas Koperindag
                 </div>
             </div>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
-                <img src="{{ asset('images/galeri2.jpg') }}" alt="Aktivitas Pasar">
+                <img src="{{ asset('images/Galeri2.jpg') }}" alt="Aktivitas Pasar">
                 <div class="description">
                     <i class="fas fa-users mr-2"></i> Sharing Informasi Harga
                 </div>
             </div>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
-                <img src="{{ asset('images/galeri3.jpg') }}" alt="Komoditi Pasar">
+                <img src="{{ asset('images/Galeri3.jpg') }}" alt="Komoditi Pasar">
                 <div class="description">
                     <i class="fas fa-carrot mr-2"></i> Pengenalan Website yang dimiliki Koperindag
                 </div>
             </div>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="400">
-                <img src="{{ asset('images/galeri4.jpg') }}" alt="Transaksi Pasar">
+                <img src="{{ asset('images/Galeri4.jpg') }}" alt="Transaksi Pasar">
                 <div class="description">
                     <i class="fas fa-hand-holding-usd mr-2"></i> Requirement Bersama Dinas Koperindag
                 </div>
