@@ -107,7 +107,7 @@ class OfficerController extends Controller
             'is_active' => true
         ];
     
-        $response = Http::post('http://localhost:8080/api/market-officers', $payload);
+        $response = Http::post('https://go-backend-production-91cc.up.railway.app/api/market-officers', $payload);
     
         if ($response->failed()) {
             $error = $response->json('error') ?? 'Gagal menambahkan petugas ke backend Golang.';
@@ -168,7 +168,7 @@ public function destroy($id)
         $officer = Officer::findOrFail($id);
         
         // Hapus dari backend Golang
-        $response = Http::delete("http://localhost:8080/api/market-officers/{$id}");
+        $response = Http::delete("https://go-backend-production-91cc.up.railway.app/api/market-officers/{$id}");
         
         if ($response->failed()) {
             return response()->json([
